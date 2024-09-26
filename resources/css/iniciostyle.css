@@ -1,0 +1,198 @@
+/* Reset e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Menu */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+header nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #77b374;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::before {
+    width: 100%;
+}
+
+header nav ul li a:hover {
+    color: #77b374;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header nav ul li:hover {
+    transform: translateY(-5px);
+}
+
+/* Linha verde */
+header .linha-verde {
+    position: relative;
+    height: 125px;
+    width: 70px;
+    margin-left: 20px;
+}
+
+/* Efeito Parallax */
+.hero.parallax {
+    height: 91vh;
+    background-image: url('folhasfundo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+/* Título "Eco Herbário" com "Eco" menor que "Herbário" */
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 96px;
+    font-weight: 600;
+    line-height: 117px;
+    text-align: left;
+    color: #77b374;
+}
+
+.hero h1 .eco {
+    display: block;
+    font-size: 70px;
+}
+
+.hero h1 .herbario {
+    display: block;
+    margin-top: -150px;
+    font-size: 96px;
+}
+
+/* Seção Plantas */
+.plantas {
+    padding: 50px;
+    background-color: #2a2a2a;
+    text-align: center;
+}
+
+.plantas h2 {
+    font-size: 42px;
+    color: #77b374;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* Estilos dos cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    margin-top: 35px;
+    width: 100%;
+    max-width: 1200px;
+    grid-gap: 24px;
+    padding: 16px;
+}
+
+@media (min-width: 540px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    position: relative;
+    padding-bottom: 150%;
+    transition: transform 0.3s ease;
+}
+
+.card-background {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    border-radius: 24px;
+    filter: brightness(.75) saturate(1.2) contrast(.85);
+}
+
+.card-content {
+    position: absolute;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.card-content p {
+    color: rgba(255, 255, 255, .6);
+    margin-bottom: 50px;
+    font-size: .9rem;
+}
+
+.card-content h3 {
+    font-size: 1.9rem;
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}

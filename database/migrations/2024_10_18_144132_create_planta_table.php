@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('plantas', function (Blueprint $table) {
             $table->id();
-            $table->string('nome'); // Nome da planta
+            $table->string('nome_comum'); // Nome da planta
             $table->string('nome_cientifico'); //Nome cientifico
             $table->string('familia'); //Familia em que pertence
             $table->string('genero'); //Genero de planta pertencente

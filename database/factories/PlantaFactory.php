@@ -3,42 +3,29 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Planta>
  */
 class PlantaFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
-
-    /**
-     * Define the model's default state.
+     * Define o estado padrão do modelo.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            'nome_comum' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'nome_comum' => fake()->words(2, true), // Nome comum com duas palavras
+            'nome_cientifico' => fake()->unique()->word() . ' ' . fake()->word(), // Nome científico "Gênero espécie"
+            'familia' => fake()->unique()->word(), // Família da planta
+            'genero' => fake()->unique()->word(), // Gênero da planta
+            'especie' => fake()->unique()->word(), // Espécie da planta
+            'habitat' => fake()->randomElement(['Floresta', 'Savana', 'Pantanal', 'Cerrado', 'Mata Atlântica', 'Áreas úmidas']), // Habitat
+            'distribuicao_geografica' => fake()->randomElement(['América do Sul', 'América do Norte', 'Ásia', 'Europa', 'África', 'Oceania']), // Distribuição geográfica
+            'descricao' => fake()->sentence(15), // Descrição breve
+            'categoria' => fake()->randomElement(['Ornamental', 'Medicinal', 'Tropical', 'Temperada']), // Categoria
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
     }
 }

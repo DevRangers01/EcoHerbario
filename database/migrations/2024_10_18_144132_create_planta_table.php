@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('plantas', function (Blueprint $table) {
             $table->id();
             $table->string('nome_comum'); // Nome da planta
-            $table->string('nome_cientifico'); //Nome cientifico
-            $table->string('familia'); //Familia em que pertence
-            $table->string('genero'); //Genero de planta pertencente
-            $table->string('especie'); //Especie de planta pertencente
-            $table->text('habitat'); //Habitat natural
-            $table->text('dist_geo'); //Distribuição geografica
+            $table->string('nome_cientifico')->unique(); // Nome científico único
+            $table->string('familia'); // Família a que pertence
+            $table->string('genero'); // Gênero da planta
+            $table->string('especie'); // Espécie da planta
+            $table->string('habitat'); // Habitat natural
+            $table->string('distribuicao_geografica'); // Distribuição geográfica
             $table->text('descricao'); // Descrição da planta
             $table->string('categoria'); // Categoria (tropicais, temperadas, ornamentais, medicinais)
 
@@ -35,4 +35,3 @@ return new class extends Migration
         Schema::dropIfExists('plantas');
     }
 };
-

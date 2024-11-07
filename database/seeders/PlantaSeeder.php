@@ -208,8 +208,8 @@ class PlantaSeeder extends Seeder
         ]);
 
         Planta::create([
-            'nome_comum'=> "Liro",
-            'nome_cientifico'=> "Lilium candidum",
+            'nome_comum'=> "Lirío",
+            'nome_cientifico'=> "Spathiphyllum wallisii",
             'familia'=> "Liliaceae",
             'genero'=> "Lilium",
             'especie'=> "Lilium candidum",

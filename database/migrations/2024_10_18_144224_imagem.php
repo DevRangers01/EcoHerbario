@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('amostra_id')->constrained('amostra')->onDelete('cascade'); // Relacionamento com planta
             $table->string('url'); // URL ou caminho da imagem
             $table->string('img_micro'); //Img microscopica
-            $table->string('descricao')->nullable(); // Descrição opcional da imagem
-            $table->date('data_da_imagem'); 
             $table->timestamps();
         });
     }

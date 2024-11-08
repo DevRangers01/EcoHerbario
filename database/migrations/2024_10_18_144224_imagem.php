@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('imagens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('amostra_id')->constrained('amostra')->onDelete('cascade'); // Relacionamento com planta
+            $table->foreignId('planta_id')->constrained()->onDelete('cascade'); // Relacionamento com planta
             $table->string('url'); // URL ou caminho da imagem
             $table->string('img_micro'); //Img microscopica
             $table->timestamps();

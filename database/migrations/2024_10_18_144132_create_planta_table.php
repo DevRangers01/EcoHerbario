@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('habitat'); // Habitat natural
             $table->string('distribuicao_geografica'); // Distribuição geográfica
             $table->text('descricao'); // Descrição da planta
+            $table->text('metodo_de_cultivo');
+            $table->text('observacoes'); //Observação feita sobre a planta
             $table->string('categoria'); // Categoria (tropicais, temperadas, ornamentais, medicinais)
 
             $table->timestamps();
